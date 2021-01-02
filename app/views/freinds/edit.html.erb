@@ -1,0 +1,11 @@
+<h1>Editing Freind</h1>
+<br/>
+<%= render 'form', freind: @freind %>
+<br/>
+<%= link_to 'Show', @freind, class:"btn btn-secondary" %> 
+
+<%= link_to 'Delete', @freind, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+
+
+
+<%= link_to 'Back', freinds_path, class:"btn btn-dark" %>

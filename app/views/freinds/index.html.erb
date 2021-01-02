@@ -1,0 +1,44 @@
+
+
+<% if user_signed_in? %>
+
+
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Twitter</th>
+      <th> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @freinds.each do |freind| %>
+    <%if freind.user == current_user %>
+      <tr>
+        <td>
+          <%= link_to freind.first_name +  '' + freind.last_name ,freind %>
+        </td>
+        <td><%= freind.email %></td>
+        <td><%= freind.phone %></td>
+        <td><%= freind.twitter %></td>
+
+        
+        <td><%= link_to 'Delete', freind, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Freind', new_freind_path, class:"btn btn-secondary" %>
+<% else %>
+<h1>Hello World</h1>
+This is my first Rails Webpage..
+
+<% end %>
